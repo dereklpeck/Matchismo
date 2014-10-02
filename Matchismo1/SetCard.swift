@@ -10,6 +10,10 @@ import Foundation
 
 class SetCard : Card {
     
+    // MARK: Class Variables
+    let SUIT_MATCH_SCORE = 1
+    
+    //MARK: Properties
     var shape: String! {
         didSet {
             if !contains(SetCard.validShapes(), shape) {
@@ -41,6 +45,28 @@ class SetCard : Card {
             }
         }
     }
+    
+    // MARK: Match Function
+    
+    override func match(otherCards: [Card]) -> Int {
+        var score = 0
+        var matchedSuit = true
+        var matchedRank = true
+        // Match 2 cards
+        if otherCards.count == 2 { // Match 3 cards
+            
+//            if let otherCard = otherCards.last as? PlayingCard {
+//                if otherCard.suit == suit {
+//                    score = SUIT_MATCH_SCORE
+//                } else if otherCard.rank == rank {
+//                    score = RANK_MATCH_SCORE
+//                }
+//            }
+        }
+        return score
+    }
+    
+    // MARK: Helper Methods
     
     class func validShapes() -> [String] {
         return ["▲", "●", "■"]
