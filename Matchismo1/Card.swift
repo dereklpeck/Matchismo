@@ -13,7 +13,7 @@ class Card {
     var faceUp = false
     var unplayable = false
     
-  func match(otherCards: [Card], mode: Int) -> Int {
+  func match(otherCards: [Card]) -> Int {
         var score = 0
         for card in otherCards {
             if card.contents == contents {

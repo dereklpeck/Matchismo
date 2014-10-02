@@ -31,12 +31,12 @@ class PlayingCard: Card {
         }
     }
   
-  override func match(otherCards: [Card], mode: Int) -> Int {
+  override func match(otherCards: [Card]) -> Int {
     var score = 0
     var matchedSuit = true
     var matchedRank = true
     // Match 2 cards
-    if otherCards.count == 1 && mode == 0 {
+    if otherCards.count == 1{
       
       if let otherCard = otherCards.last as? PlayingCard {
         if otherCard.suit == suit {
@@ -44,32 +44,6 @@ class PlayingCard: Card {
         } else if otherCard.rank == rank {
           score = RANK_MATCH_SCORE
         }
-      }
-      // Match 3 cards
-    } else if otherCards.count > 1 && mode == 1 {
-      // Check suit
-      for singleCard in otherCards {
-        let thisCard = singleCard as? PlayingCard
-        if thisCard?.suit == suit && matchedSuit {
-          
-        } else {
-          matchedSuit = false
-        }
-      }
-      // Check Rank
-      for singleCard in otherCards {
-        let thisCard = singleCard as? PlayingCard
-        if thisCard?.rank == rank && matchedRank {
-          
-        } else {
-          matchedRank = false
-        }
-      }
-      if matchedSuit {
-        score = SUIT_MATCH_SCORE * 4
-      }
-      if matchedRank {
-        score = RANK_MATCH_SCORE * 4
       }
     }
     return score

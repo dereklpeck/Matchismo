@@ -15,7 +15,7 @@ class CardGameViewController : UIViewController {
   
   @IBOutlet weak var scoreLabel: UILabel!
   @IBOutlet weak var flipLabel: UILabel!
-  @IBOutlet weak var gameModeSwitch: UISegmentedControl!
+//  @IBOutlet weak var gameModeSwitch: UISegmentedControl!
   @IBOutlet weak var historyLabel: UILabel!
   
   @IBOutlet var cardButtons: [UIButton]! {
@@ -72,10 +72,10 @@ class CardGameViewController : UIViewController {
   //MARK: UI Interactions ---------------
   
   @IBAction func flipCard(sender: UIButton) {
-    results = game.flipCardAtIndex(indexOfButton(sender), mode: gameModeSwitch.selectedSegmentIndex)!
+    results = game.flipCardAtIndex(indexOfButton(sender))!
     ++flipCount
     updateUI()
-    gameModeSwitch.enabled = false
+//    gameModeSwitch.enabled = false
   }
   
   @IBAction func dealNewGame(sender: UIButton) {
@@ -85,20 +85,20 @@ class CardGameViewController : UIViewController {
       button.enabled = true
     }
     updateUI()
-    gameModeSwitch.enabled = true
+//    gameModeSwitch.enabled = true
     results = ""
   }
 
-  @IBAction func indexChanged(sender: UISegmentedControl) {
-    switch gameModeSwitch.selectedSegmentIndex {
-      case 0:
-        print("2 Card\n");
-      case 1:
-        print("3 Card\n");
-      default:
-        break;
-    }
-  }
+//  @IBAction func indexChanged(sender: UISegmentedControl) {
+//    switch gameModeSwitch.selectedSegmentIndex {
+//      case 0:
+//        print("2 Card\n");
+//      case 1:
+//        print("3 Card\n");
+//      default:
+//        break;
+//    }
+//  }
 }
 
 

@@ -241,18 +241,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="HbV-XK-8Gu">
-                                <rect key="frame" x="105" y="488" width="111" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="2 Card"/>
-                                    <segment title="3 Card"/>
-                                </segments>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <action selector="indexChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="N1s-Ak-ZNa"/>
-                                </connections>
-                            </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="JEF-bd-6eZ">
                                 <rect key="frame" x="126" y="450" width="68" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -269,7 +257,6 @@
                     <tabBarItem key="tabBarItem" title="Go-Fish" id="l7n-dV-52d"/>
                     <connections>
                         <outlet property="flipLabel" destination="AU3-KW-SSn" id="ucJ-8g-xIF"/>
-                        <outlet property="gameModeSwitch" destination="HbV-XK-8Gu" id="K3w-h9-dCJ"/>
                         <outlet property="historyLabel" destination="T7N-1y-ZT0" id="HGG-J0-svY"/>
                         <outlet property="scoreLabel" destination="Mvh-IG-g8P" id="Xdp-8V-W7E"/>
                         <outletCollection property="cardButtons" destination="Al4-ow-EYG" collectionClass="NSMutableArray" id="8jH-ZI-NI9"/>

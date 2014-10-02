@@ -23,7 +23,7 @@ class CardMatchingGame {
     }
   }
   
-  func flipCardAtIndex(index: Int, mode: Int) -> NSString? {
+  func flipCardAtIndex(index: Int) -> NSString? {
      var result: String = ""
     if let card = cardAtIndex(index) {
       if !card.unplayable {
@@ -33,9 +33,9 @@ class CardMatchingGame {
           for otherCard in cards {
             if otherCard.faceUp && !otherCard.unplayable {
               
-              if mode == 0 {
+//              if mode == 0 {
                 // match 2 cards
-                let matchScore = card.match([otherCard], mode: mode)
+                let matchScore = card.match([otherCard])
                 
                 if matchScore > 0 {
                   otherCard.unplayable = true
@@ -47,36 +47,33 @@ class CardMatchingGame {
                   score -= MISMATCH_PENALTY
                   result = "\(card.contents) & \(otherCard.contents) don't match: \(MISMATCH_PENALTY) point penalty"
                 }
-              } else {
-                // match 3 or more cards
-                cardArray.append(otherCard)
-              }
+//              }
             }
           }
-          if mode == 1 {
-            let matchScore = card.match(cardArray, mode: mode)
-            
-            if matchScore > 0 {
-              for eachCard in cardArray {
-                eachCard.unplayable = true
-              }
-              card.unplayable = true
-              score += matchScore * MATCH_BONUS
-              
-              result = "Matched \(card.contents)"
-              for oneCard in cardArray {
-                result += " & \(oneCard.contents)"
-              }
-              result += " for \(matchScore * MATCH_BONUS) points"
-            } else if cardArray.count == 2{
-              score -= MISMATCH_PENALTY
-              result = "\(card.contents)"
-              for oneCard in cardArray {
-                result += " & \(oneCard.contents)"
-              }
-              result += " don't match: \(MISMATCH_PENALTY) point penalty"
-            }
-          }
+//          if mode == 1 {
+//            let matchScore = card.match(cardArray, mode: mode)
+//            
+//            if matchScore > 0 {
+//              for eachCard in cardArray {
+//                eachCard.unplayable = true
+//              }
+//              card.unplayable = true
+//              score += matchScore * MATCH_BONUS
+//              
+//              result = "Matched \(card.contents)"
+//              for oneCard in cardArray {
+//                result += " & \(oneCard.contents)"
+//              }
+//              result += " for \(matchScore * MATCH_BONUS) points"
+//            } else if cardArray.count == 2{
+//              score -= MISMATCH_PENALTY
+//              result = "\(card.contents)"
+//              for oneCard in cardArray {
+//                result += " & \(oneCard.contents)"
+//              }
+//              result += " don't match: \(MISMATCH_PENALTY) point penalty"
+//            }
+//          }
           
           
           score -= FLIP_COST
