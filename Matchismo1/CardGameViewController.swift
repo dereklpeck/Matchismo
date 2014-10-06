@@ -72,7 +72,8 @@ class CardGameViewController : UIViewController {
   //MARK: UI Interactions ---------------
   
   @IBAction func flipCard(sender: UIButton) {
-    results = game.flipCardAtIndex(indexOfButton(sender))!
+    var output = game.flipCardAtIndex(indexOfButton(sender), mode: 0)
+    results = output.string!
     ++flipCount
     updateUI()
 //    gameModeSwitch.enabled = false

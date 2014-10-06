@@ -31,9 +31,9 @@ class SetGameViewController : UIViewController {
         }
     }
     
-    var results: String = "" {
+    var results: NSAttributedString = NSAttributedString(string: "") {
         didSet {
-            historyLabel.text = results
+            historyLabel.attributedText = results
         }
     }
     
@@ -57,11 +57,11 @@ class SetGameViewController : UIViewController {
     func drawCards() {
         for button in cardButtons {
             let card = game.cardAtIndex(indexOfButton(button))!
-            button.setAttributedTitle(getAttributedString(card as SetCard), forState: .Normal)
+            button.setAttributedTitle(SetGameViewController.getAttributedString(card as SetCard), forState: .Normal)
         }
     }
     
-    func getAttributedString(card: SetCard) -> NSAttributedString {
+    class func getAttributedString(card: SetCard) -> NSAttributedString {
         var contents = NSMutableAttributedString(string: "")
         println("Card Contents: " + card.contents)
         for i in 1 ... card.number {
@@ -87,7 +87,8 @@ class SetGameViewController : UIViewController {
     // MARK: UI Interactions ---------------
     
     @IBAction func selectCard(sender: UIButton) {
-//        results = game.flipCardAtIndex(indexOfButton(sender))!
+        var output = game.flipCardAtIndex(indexOfButton(sender), mode: 1)
+        results = output.attributed!
         ++flipCount
         updateUI()
     }
@@ -99,7 +100,7 @@ class SetGameViewController : UIViewController {
             button.enabled = true
         }
         updateUI()
-        results = ""
+        results = NSMutableAttributedString(string: "")
     }
     
 }
