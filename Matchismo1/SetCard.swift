@@ -19,6 +19,7 @@ class SetCard : Card {
             if !contains(SetCard.validShapes(), shape) {
                 shape = "?"
             }
+            contents = "\(number)\(shape)\(color)\(shade)"
         }
     }
     
@@ -85,7 +86,7 @@ class SetCard : Card {
     }
     
     class func validShades() -> [Double] {
-        return [0.0, 0.5, 1.0]
+        return [0.0, 0.2, 1.0]
     }
     
 }

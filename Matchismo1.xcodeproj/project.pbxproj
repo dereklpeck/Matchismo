@@ -18,6 +18,7 @@
 		659CD39F19C20304008342C8 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659CD39E19C20304008342C8 /* Deck.swift */; };
 		659CD3A119C2030E008342C8 /* PlayingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659CD3A019C2030E008342C8 /* PlayingCard.swift */; };
 		659CD3A319C20317008342C8 /* PlayingCardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659CD3A219C20317008342C8 /* PlayingCardDeck.swift */; };
+		65ADDD2419E2E67100259F87 /* SetGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65ADDD2319E2E67100259F87 /* SetGameViewController.swift */; };
 		65C354C219CB404F00DE0EE4 /* CardMatchingGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C354C119CB404F00DE0EE4 /* CardMatchingGame.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		659CD39E19C20304008342C8 /* Deck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		659CD3A019C2030E008342C8 /* PlayingCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayingCard.swift; sourceTree = "<group>"; };
 		659CD3A219C20317008342C8 /* PlayingCardDeck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayingCardDeck.swift; sourceTree = "<group>"; };
+		65ADDD2319E2E67100259F87 /* SetGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetGameViewController.swift; sourceTree = "<group>"; };
 		65C354C119CB404F00DE0EE4 /* CardMatchingGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardMatchingGame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -150,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				3FD2D58E19C09E7D00CCADD3 /* CardGameViewController.swift */,
+				65ADDD2319E2E67100259F87 /* SetGameViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				659CD3A119C2030E008342C8 /* PlayingCard.swift in Sources */,
 				659CD39F19C20304008342C8 /* Deck.swift in Sources */,
 				3FD2D58F19C09E7D00CCADD3 /* CardGameViewController.swift in Sources */,
+				65ADDD2419E2E67100259F87 /* SetGameViewController.swift in Sources */,
 				65C354C219CB404F00DE0EE4 /* CardMatchingGame.swift in Sources */,
 				659CD3A319C20317008342C8 /* PlayingCardDeck.swift in Sources */,
 				659CD39D19C202FB008342C8 /* Card.swift in Sources */,
