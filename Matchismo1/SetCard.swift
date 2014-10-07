@@ -11,9 +11,9 @@ import Foundation
 class SetCard : Card {
     
     // MARK: Class Variables
-    let SUIT_MATCH_SCORE = 1
+    let SET_MATCH_SCORE = 3
     
-    //MARK: Properties
+    // MARK: Properties
     var shape: String! {
         didSet {
             if !contains(SetCard.validShapes(), shape) {
@@ -51,19 +51,66 @@ class SetCard : Card {
     
     override func match(otherCards: [Card]) -> Int {
         var score = 0
-        var matchedSuit = true
-        var matchedRank = true
-        // Match 2 cards
-        if otherCards.count == 2 { // Match 3 cards
+        var matched = false
+        
+        
+        
+        // for each card, update each dictionary. Key = string(color, number, etc) Value = count
+        // if dictionary.count = 1 or 3 (also check the counts) then it is a valid match
+        if otherCards.count >= 2{
+            // create 4 dictionaries
+            var shapeDictionary = [String: Int]()
+            var colorDictionary = [String: Int]()
+            var countDictionary = [Int: Int]()
+            var shadeDictionary = [Double: Int]()
             
-//            if let otherCard = otherCards.last as? PlayingCard {
-//                if otherCard.suit == suit {
-//                    score = SUIT_MATCH_SCORE
-//                } else if otherCard.rank == rank {
-//                    score = RANK_MATCH_SCORE
-//                }
-//            }
+            // Mark first card
+            shapeDictionary.updateValue(1, forKey: shape)
+            colorDictionary.updateValue(1, forKey: color)
+            countDictionary.updateValue(1, forKey: number)
+            shadeDictionary.updateValue(1, forKey: shade)
+            
+            for otherCard in otherCards {
+                if let setCard = otherCard as? SetCard {
+                    // Shape
+                    if let n = shapeDictionary[setCard.shape] {
+                        shapeDictionary.updateValue(n + 1, forKey:setCard.shape)
+                    } else {
+                        shapeDictionary.updateValue(1, forKey:setCard.shape)
+                    }
+                    
+                    // Color
+                    if let n = colorDictionary[setCard.shape] {
+                        colorDictionary.updateValue(n + 1, forKey:setCard.color)
+                    } else {
+                        colorDictionary.updateValue(1, forKey:setCard.color)
+                    }
+                    
+                    // Shade
+                    if let n = shadeDictionary[setCard.shade] {
+                        shadeDictionary.updateValue(n + 1, forKey:setCard.shade)
+                    } else {
+                        shadeDictionary.updateValue(1, forKey:setCard.shade)
+                    }
+                    
+                    // Count
+                    if let n = countDictionary[setCard.number] {
+                        countDictionary.updateValue(n + 1, forKey:setCard.number)
+                    } else {
+                        countDictionary.updateValue(1, forKey:setCard.number)
+                    }
+                }
+            }
+            
+            if shapeDictionary.count != 2 && countDictionary.count != 2 && colorDictionary.count != 2 && shadeDictionary.count != 2{
+                matched = true
+            }
         }
+        
+        if matched {
+            score = SET_MATCH_SCORE
+        }
+
         return score
     }
     

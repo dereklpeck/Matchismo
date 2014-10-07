@@ -73,7 +73,7 @@ class CardMatchingGame {
                                 setResult.appendAttributedString(NSMutableAttributedString(string: " & "))
                                 setResult.appendAttributedString(SetGameViewController.getAttributedString(oneCard as SetCard))
                             }
-                            setResult.appendAttributedString(NSMutableAttributedString(string: " for \(matchScore * MATCH_BONUS) points"))
+                            setResult.appendAttributedString(NSMutableAttributedString(string: " for \(matchScore * SET_MATCH_BONUS) points"))
                         } else if cardArray.count == 2{
                             score -= MISMATCH_PENALTY
                             setResult = NSMutableAttributedString(string: "")

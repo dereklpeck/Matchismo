@@ -47,9 +47,17 @@ class SetGameViewController : UIViewController {
     }
     
     func updateUI() {
+        let cardSelected = UIImage(named: "SelectedCard")
+        let cardUnselected = UIImage(named: "CardFront")
+        
         for button in cardButtons {
             let card = game.cardAtIndex(indexOfButton(button))!
-            button.enabled = !card.unplayable
+            if card.faceUp {
+                button.setBackgroundImage(cardSelected, forState: .Normal)
+                button.enabled = !card.unplayable
+            } else {
+                button.setBackgroundImage(cardUnselected, forState: .Normal)
+            }
         }
         scoreLabel.text = "Score: \(game.currentScore())"
     }
@@ -63,20 +71,18 @@ class SetGameViewController : UIViewController {
     
     class func getAttributedString(card: SetCard) -> NSAttributedString {
         var contents = NSMutableAttributedString(string: "")
-        println("Card Contents: " + card.contents)
         for i in 1 ... card.number {
             var temp = NSMutableAttributedString(string: card.shape)
             switch card.color {
                 case "Blue":
-                    temp.addAttributes([NSForegroundColorAttributeName: UIColor.blueColor().colorWithAlphaComponent(CGFloat(card.shade)), NSStrokeWidthAttributeName : -5,
+                    temp.addAttributes([NSFontAttributeName : UIFont.systemFontOfSize(17), NSForegroundColorAttributeName: UIColor.blueColor().colorWithAlphaComponent(CGFloat(card.shade)), NSStrokeWidthAttributeName : -5,
                         NSStrokeColorAttributeName : UIColor.blueColor()], range: NSRange(location: 0,length: temp.length))
                 case "Green":
-                            temp.addAttributes([NSForegroundColorAttributeName: UIColor.greenColor().colorWithAlphaComponent(CGFloat(card.shade)), NSStrokeWidthAttributeName : -5,
-                    NSStrokeColorAttributeName : UIColor.greenColor()], range: NSRange(location: 0,length: temp.length))                case "Red":
-                    temp.addAttributes([NSForegroundColorAttributeName: UIColor.redColor().colorWithAlphaComponent(CGFloat(card.shade)), NSStrokeWidthAttributeName : -5,
-                                NSStrokeColorAttributeName : UIColor.redColor()], range: NSRange(location: 0,length: temp.length))            default:
-                                temp.addAttributes([NSForegroundColorAttributeName: UIColor.blackColor().colorWithAlphaComponent(CGFloat(card.shade)), NSStrokeWidthAttributeName : -5,
-                        NSStrokeColorAttributeName : UIColor.blackColor()], range: NSRange(location: 0,length: temp.length))
+                    temp.addAttributes([NSFontAttributeName : UIFont.systemFontOfSize(17), NSForegroundColorAttributeName: UIColor.greenColor().colorWithAlphaComponent(CGFloat(card.shade)), NSStrokeWidthAttributeName : -5, NSStrokeColorAttributeName : UIColor.greenColor()], range: NSRange(location: 0,length: temp.length))
+                case "Red":
+                    temp.addAttributes([NSFontAttributeName : UIFont.systemFontOfSize(17), NSForegroundColorAttributeName: UIColor.redColor().colorWithAlphaComponent(CGFloat(card.shade)), NSStrokeWidthAttributeName : -5, NSStrokeColorAttributeName : UIColor.redColor()], range: NSRange(location: 0,length: temp.length))
+                default:
+                    temp.addAttributes([NSFontAttributeName : UIFont.systemFontOfSize(17), NSForegroundColorAttributeName: UIColor.blackColor().colorWithAlphaComponent(CGFloat(card.shade)), NSStrokeWidthAttributeName : -5, NSStrokeColorAttributeName : UIColor.blackColor()], range: NSRange(location: 0,length: temp.length))
             }
             contents.appendAttributedString(temp)
         }
@@ -95,6 +101,7 @@ class SetGameViewController : UIViewController {
     
     @IBAction func dealNewGame(sender: UIButton) {
         game = CardMatchingGame(cardCount: cardButtons.count, deck: SetCardDeck())
+        drawCards()
         flipCount = 0
         for button in cardButtons {
             button.enabled = true

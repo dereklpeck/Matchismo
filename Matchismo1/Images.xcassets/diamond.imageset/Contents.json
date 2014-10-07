@@ -3,12 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "CardFront.png"
+      "filename" : "diamond.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "CardFront@2x.png"
+      "filename" : "diamond-1.png"
     },
     {
       "idiom" : "universal",

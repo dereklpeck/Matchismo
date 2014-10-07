@@ -3,12 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "CardFront.png"
+      "filename" : "spade.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "CardFront@2x.png"
+      "filename" : "spade@2x.png"
     },
     {
       "idiom" : "universal",
