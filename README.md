@@ -1,13 +1,15 @@
 Matchismo
 =========
 
-Matchismo Card Game
 Derek Peck
-Project 1
+Matchismo
+Project 2
 
 Evaluation
 
-I think I deserve 50/50 points because I fulfilled all the requirements and had fun doing so. I tried my best to apply my understanding of MVC and write my project in such a way that it would adhere strictly to MVC. I really like my layout, I think it is slick. I think I got the layout of MVC done, however my implementation may not be the best. I refactored the matching methods to better handle three cards, however the tact that displays the results of your move is where I struggled. I don’t think I came up with the most elegant solution there.
+I think I deserve 100% on this project because I fulfilled all the requirements, and I had a fun time doing it. Set is a tough game and I got a lot better by programming it. I did my best to adhere to MVC. It was tough and I think my weakest part was writing the feedback to the user “Matched blah blah”. My solution to that was sort of jacky, but it works. I also don’t think I architected my project the best in terms of OOP. I can think of, off the top of my head, at least 3 different ways I would re-architect this project with both games in mind. That being said, they both work and I am satisfied with that for now.
+
+I learned a lot of what to do and what not to do from this project.
 
 As such, my evaluation of my project is as follows:
 
